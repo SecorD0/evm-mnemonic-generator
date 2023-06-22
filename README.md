@@ -12,7 +12,8 @@
 - [File structure](#File-structure)
 - [How to run](#How-to-run)
     - [Windows](#Windows)
-    - [Docker](#Docker)
+    - [Docker (building)](#Docker-building)
+    - [Docker (image)](#Docker-image)
     - [Source code](#Source-code)
 - [Report a bug or suggest an idea](#Report-a-bug-or-suggest-an-idea)
 - [Express your gratitude](#Express-your-gratitude)
@@ -72,19 +73,13 @@
 5. Open the `mnemonics.txt` file to look at the result of the program.
 
 
-<h2><p align="center">Docker</p></h2>
+<h2><p align="center">Docker (building)</p></h2>
 
 1. Install Docker, in Ubuntu you can use the command:
 ```sh
 . <(wget -qO- https://raw.githubusercontent.com/SecorD0/utils/main/installers/docker.sh)
 ```
-2. Run container from image:
-```sh
-docker run -it --rm -v $HOME/eth-mnemonic-generator:/program/files --name eth-mnemonic-generator ghcr.io/SecorD0/eth-mnemonic-generator:main
-```
-
-**OR** you can create the image manually.
-1. Clone the repository:
+2. Clone the repository:
 ```sh
 git clone https://github.com/SecorD0/eth-mnemonic-generator
 ```
@@ -96,7 +91,7 @@ cd eth-mnemonic-generator
 ```sh
 docker build -t eth-mnemonic-generator .
 ```
-4. Run the program.
+4. Run the program:
 ```sh
 docker run -it --rm -v $HOME/eth-mnemonic-generator/:/program --name eth-mnemonic-generator eth-mnemonic-generator
 ```
@@ -108,6 +103,26 @@ docker run -it --rm -v $HOME/eth-mnemonic-generator/:/program --name eth-mnemoni
      - Insert mnemonics or private keys into the `mnemonics.txt` file;
      - Enter `2` and press `Enter`.
 6. Open the `mnemonics.txt` file to look at the result of the program.
+
+
+<h2><p align="center">Docker (image)</p></h2>
+
+1. Install Docker, in Ubuntu you can use the command:
+```sh
+. <(wget -qO- https://raw.githubusercontent.com/SecorD0/utils/main/installers/docker.sh)
+```
+2. Run the program:
+```sh
+docker run -it --rm -v $HOME/eth-mnemonic-generator/files:/program/files --name eth-mnemonic-generator ghcr.io/SecorD0/eth-mnemonic-generator:main
+```
+3. Follow the steps depending on your goal:
+   - Generate:
+      - Enter `1` and press `Enter`;
+      - Enter the number of wallets to generate and press `Enter`.
+   - Retrieve private keys and addresses:
+     - Insert mnemonics or private keys into the `mnemonics.txt` file;
+     - Enter `2` and press `Enter`.
+4. Open the `mnemonics.txt` file to look at the result of the program.
 
 
 <h2><p align="center">Source code</p></h2>
