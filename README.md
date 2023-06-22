@@ -113,7 +113,7 @@ docker run -it --rm -v $HOME/eth-mnemonic-generator/:/program --name eth-mnemoni
 ```
 2. Run the program:
 ```sh
-docker run -it --rm -v $HOME/eth-mnemonic-generator/files:/program/files --name eth-mnemonic-generator ghcr.io/SecorD0/eth-mnemonic-generator:main
+docker run -it --rm -v $HOME/eth-mnemonic-generator/files:/program/files --name eth-mnemonic-generator ghcr.io/secord0/eth-mnemonic-generator:main
 ```
 3. Follow the steps depending on your goal:
    - Generate:
@@ -170,7 +170,7 @@ pyinstaller app.py -Fn eth-mnemonic-generator -i images/icons/app.ico --add-bina
 <p align="right"><a href="#Content">To the content</a></p>
 
 ⠀You can express your gratitude to the developer by sending fund to crypto wallets!
-- Ethereum-like address (Ethereum, BSC, Moonbeam, etc.): `0x900649087b8D7b9f799F880427DacCF2286D8F20`
+- Address of EVM networks (Ethereum, Polygon, BSC, etc.): `0x900649087b8D7b9f799F880427DacCF2286D8F20`
 - USDT TRC-20: `TNpBdjcmR5KzMVCBJTRYMJp16gCkQHu84K`
 - SOL: `DoZpXzGj5rEZVhEVzYdtwpzbXR8ifk5bajHybAmZvR4H`
 - BTC: `bc1qs4a0c3fntlhzn9j297qdsh3splcju54xscjstc`
