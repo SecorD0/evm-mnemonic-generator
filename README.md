@@ -1,4 +1,4 @@
-<h1><p align="center">eth-mnemonic-generator</p></h1><h1>
+<h1><p align="center">eth-mnemonic-generator</p></h1>
 
 <p align="center"><img src="images/icons/app.ico" width="400"></p>
 
@@ -7,13 +7,13 @@
 <h1><p align="center">Content</p></h1>
 
 - [DISCLAIMER](#DISCLAIMER)
-- [Short description](#Short-description)
+- [Description](#Description)
 - [Useful links](#Useful-links)
 - [File structure](#File-structure)
 - [How to run](#How-to-run)
     - [Windows](#Windows)
-    - [Docker (building)](#Docker-building)
     - [Docker (image)](#Docker-image)
+    - [Docker (building)](#Docker-building)
     - [Source code](#Source-code)
 - [Report a bug or suggest an idea](#Report-a-bug-or-suggest-an-idea)
 - [Express your gratitude](#Express-your-gratitude)
@@ -28,7 +28,8 @@
 ⠀By using this program you have agreed to the above and have no and won't have claims against its developer.
 
 
-<h1><p align="center">Short description</p></h1>
+
+<h1><p align="center">Description</p></h1>
 <p align="right"><a href="#Content">To the content</a></p>
 
 ⠀The program allows you to:
@@ -58,6 +59,7 @@
 <h1><p align="center">How to run</p></h1>
 <p align="right"><a href="#Content">To the content</a></p>
 
+
 <h2><p align="center">Windows</p></h2>
 
 1. Download an EXE file from the [releases page](https://github.com/SecorD0/eth-mnemonic-generator/releases).
@@ -71,6 +73,26 @@
      - Insert mnemonics or private keys into the `mnemonics.txt` file;
      - Enter `2` and press `Enter`.
 5. Open the `mnemonics.txt` file to look at the result of the program.
+
+
+<h2><p align="center">Docker (image)</p></h2>
+
+1. Install Docker, in Ubuntu you can use the command:
+```sh
+. <(wget -qO- https://raw.githubusercontent.com/SecorD0/utils/main/installers/docker.sh)
+```
+2. Run the program:
+```sh
+docker run -it --rm -v $HOME/eth-mnemonic-generator/files:/program/files --name eth-mnemonic-generator ghcr.io/secord0/eth-mnemonic-generator:main
+```
+3. Follow the steps depending on your goal:
+   - Generate:
+      - Enter `1` and press `Enter`;
+      - Enter the number of wallets to generate and press `Enter`.
+   - Retrieve private keys and addresses:
+     - Insert mnemonics or private keys into the `mnemonics.txt` file;
+     - Enter `2` and press `Enter`.
+4. Open the `mnemonics.txt` file to look at the result of the program.
 
 
 <h2><p align="center">Docker (building)</p></h2>
@@ -105,29 +127,9 @@ docker run -it --rm -v $HOME/eth-mnemonic-generator/:/program --name eth-mnemoni
 6. Open the `mnemonics.txt` file to look at the result of the program.
 
 
-<h2><p align="center">Docker (image)</p></h2>
-
-1. Install Docker, in Ubuntu you can use the command:
-```sh
-. <(wget -qO- https://raw.githubusercontent.com/SecorD0/utils/main/installers/docker.sh)
-```
-2. Run the program:
-```sh
-docker run -it --rm -v $HOME/eth-mnemonic-generator/files:/program/files --name eth-mnemonic-generator ghcr.io/secord0/eth-mnemonic-generator:main
-```
-3. Follow the steps depending on your goal:
-   - Generate:
-      - Enter `1` and press `Enter`;
-      - Enter the number of wallets to generate and press `Enter`.
-   - Retrieve private keys and addresses:
-     - Insert mnemonics or private keys into the `mnemonics.txt` file;
-     - Enter `2` and press `Enter`.
-4. Open the `mnemonics.txt` file to look at the result of the program.
-
-
 <h2><p align="center">Source code</p></h2>
 
-1. Install [Python](https://www.python.org/downloads/).
+1. Install [Python 3.8](https://www.python.org/downloads/).
 2. Clone the repository:
 ```sh
 git clone https://github.com/SecorD0/eth-mnemonic-generator
@@ -152,7 +154,12 @@ pip install -r requirements.txt
 8. Open the `mnemonics.txt` file to look at the result of the program.
 
 
-⠀If you want to build the EXE file by yourself, use the command:
+⠀If you want to build the EXE file by yourself:
+- Install `pyinstaller`:
+```sh
+pip install pyinstaller
+```
+- Build the EXE file:
 ```sh
 pyinstaller app.py -Fn eth-mnemonic-generator -i images/icons/app.ico --add-binary "images/icons;images/icons" --add-binary "data\wordlist;eth_account\hdaccount\wordlist"
 ```
